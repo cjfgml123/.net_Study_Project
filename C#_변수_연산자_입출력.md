@@ -63,3 +63,5 @@ Console.WriteLine(a.Value); //true 출력
 string result = (10 % 2) == 0 ? "짝수" : "홀수";
 ```
 
+
+

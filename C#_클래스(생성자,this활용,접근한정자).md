@@ -10,7 +10,7 @@ namespace DeepCopy
         public int MyField1;  //필드
         public int MyField2;
 
-        public Field Deepcopy() // 중요
+        public Field Deepcopy() // 중요 : 객체를 힙에 새로 할당해서 그곳에 자신의 멤버를 일일이 복사해 넣는다.
         {
             Field newCopy = new Field();
             newCopy.MyField1 = this.MyField1;
@@ -85,7 +85,7 @@ namespace ThisConstructor
     {
         int a, b, c;
 
-        public Myclass()
+        public Myclass() //생성자 
         {
             this.a = 5425;
             Console.WriteLine("MyClass()");

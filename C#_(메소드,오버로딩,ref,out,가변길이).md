@@ -47,7 +47,18 @@ namespace Method
 
 * 값에 의한 전달(Call by Value)이 안될때 참조에 의한 전달(Call by Reference)를 해야 할때 사용
 
+* **ref 키워드를 이용해서 매개 변수를 넘기는 경우에는 메소드가**
+
+  **해당 매개 변수에 결과를 저장하지 않더라도 컴파일러는**
+
+  **아무런 경고를 하지 않는다. 이와 달리 out 키워드를**
+
+  **이용해서 매개 변수를 넘길 때는 메소드가 해당 매개 변수에**
+
+  **결과를 저장하지 않으면 컴파일러가 에러 메시지를 출력한다.**
+
 ```C#
+// 메소드 값 출력시 ref 사용 고려
 using System;
 
 namespace Method
@@ -84,6 +95,7 @@ namespace Method
 * 다중 출력 전용 매개 변수(메소드 사용 할때)
 
 ```C#
+// 메소드에서 출력값이 두개 일때 사용
 using System;
 
 namespace Method
@@ -208,3 +220,8 @@ namespace NamedParameter
 }
 ```
 
+
+
+#### 로컬 함수
+
+* 로컬함수(Local function)는 메소드 안에서 선언되고 선언된 메소드 안에서만 사용되는 특별한 함수. 클래스의 멤버가 아니기 때문에 메소드가 아니라 함수(function)라고 부른다.
