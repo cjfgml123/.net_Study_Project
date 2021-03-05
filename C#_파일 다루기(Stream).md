@@ -83,7 +83,7 @@ namespace Dir
 
             Console.WriteLine($"{directory} directory Info");
             Console.WriteLine("- Directories :");
-            var directories = (from dir in Directory.GetDirectories(directory) // 하위 디렉터리 목록 조회
+            var directories = (from dir in Directory.GetDirectories(directory) // 하위 디렉터리 목록 조회 메소드
                                let info = new DirectoryInfo(dir) //let은 LINQ 안에서 변수를 만듬. LINQ의 var라고 생각하면 됨.
                                select new
                                {
@@ -131,6 +131,7 @@ namespace Dir
 ##### 2-3) System.IO.Stream 클래스 : 입력, 출력 스트림의 역할을 모두 수행 , 순차접근,임의 접근 모두 지원 
 
 * Stream 클래스가 추상클래스로 파생클래스 : FileStream, NetworkStream, GZipStream, BufferedStream ...
+* 데이터를 기록
 
 ```c#
 //FileStream 클래스의 인스턴스 생성
@@ -166,7 +167,7 @@ byte[] rBytes = new byte[8];
 
 // 스트림 방법 1. 
 //1. 파일 스트림 생성
-Stream inStream = new FileStream("a.dot",FileMode.Open); //읽기위해 여는모드는 Open 설정
+Stream inStream = new FileStream("a.dat",FileMode.Open); //읽기위해 여는모드는 Open 설정
 
 //2. rBytes의 길이만큼(8바이트) 데이터를 읽어 rBytes에 저장
 inStream.Read(rBytes, 0, rBytes.Length); //0부터 읽을 것이다. 8바이트까지
