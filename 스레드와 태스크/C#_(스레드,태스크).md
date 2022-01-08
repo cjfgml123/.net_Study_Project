@@ -108,14 +108,18 @@ static void Main(string[] args)
 | 상태          | 설명                                                         |
 | ------------- | ------------------------------------------------------------ |
 | Unstarted     | 스레드 객체를 생성한 후 Thread.Start() 메소드가 호출되기 전의 상태 |
-| Running       | 스레드가 시작하여 동작 중인 상태를 나타낸다.                 |
-| Suspended     | 일시 중단 상태                                               |
-| WaitSleepJoin | 블록(block)된 상태                                           |
-| Aborted       | 취소된 상태                                                  |
-| Stopped       | 중지된 상태                                                  |
-| Background    | 백그라운드로 동작하고 있음을 나타냄                          |
+| Running       | 스레드가 시작하여 동작 중인 상태를 나타낸다. Unstarted 상태의 스레드를 Thread.Start() 메소드를 통해 이 상태로 만들 수 있다. |
+| Suspended     | 스레드의 일시 중단 상태, 스레드를 Thread.Suspend() 메소드를 통해 이 상태로 만들 수 있으며, Suspended 상태인 스레드는 Thread.Resume() 메소드를 통해 다시 Running 상태로 만들 수 있다. |
+| WaitSleepJoin | 블록(block)된 상태, 스레드에 대해 Monitor.Enter(), Thread.Sleep()또는 Thread.Join() 메소드를 호출하면 이상태가 된다. |
+| Aborted       | 스레드가 취소된 상태를 나타낸다. Thread.Abort()메소드를 호출하면 이 상태가 된다. Aborted상태가 된 스레드는 다시 Stopped 상태로 전환되어 완전히 중지 된다. |
+| Stopped       | 중지된 스레드의 상태를 나타낸다. Abort() 메소드를 호출하거나 스레드가 실행 중인 메소드가 종료되면 이 상태가 된다. |
+| Background    | 스레드가 백그라운드로 동작하고 있음을 나타냄, 포어그라운드(Foreground) 스레드는 하나라도 살아 있는 한 프로세스가 죽지 않지만, 백그라운드는 하나가 아니라 열 개가 살아 있어도 프로세스가 죽고 사는 것에는 영향을 미치지 않는다. 하지만 프로세스가 죽으면 백그라운드 스레드들도 모두 죽는다. Thread.IsBackground 속성에 true 값을 입력함으로써 스레드를 이 상태로 바꿀 수 있다. |
 
-![image-20210225143120900](C:\Users\CHLee\AppData\Roaming\Typora\typora-user-images\image-20210225143120900.png)
+![image-20210225143120900](C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드상태관계.png)
+
+#### 인터럽트 : 스레드를 임의로 종료하는 다른 방법
+
+- 수명이 다해 스레드가 스스로 종료하는 것이 가장 좋지만 불가피하게 스레드를 강제로 종료시켜야 하는 경우가 있다. Thread.Abort() 메소드는 너무 무자비하게 스레드를 종료시킨다. Thread.Interrupt() 메소드는 스레드가 한참 동작 중인 상태(Running) 상태를 피해서 WaitJoinSleep 상태에 들어갔을 때 ThreadInterruptedException 예외를 던져 스레드를 중지 시킨다. 
 
 
 
@@ -158,6 +162,13 @@ t2.Join();
 t3.Join();
 Console.WriteLine(obj.count);
 ```
+
+- lock 키워드 절대 사용하지 않는 경우
+  - this : 클래스의 인스턴스는 클래스 내부 뿐만 아니라 외부에서도 자주 사용된다. lock(this)는 나쁜 버릇이다.
+  - Type 형식 : typeof 연산자나 object 클래스로 부터 물려받은 GetType() 메소드는 Type 형식의 인스턴스를 반환합니다. 즉 코드의 어느 곳에서나 특정 형식에 대한 Type 객체를 얻을 수 있다. lock(SomeClass)나 lock(obj.GetType())은 피하기
+  - string 형식 : 절대 string 객체로 lock 하지 마라, "abc"는 어떤 코드에서든 얻어낼 수 있는 string객체이다. lock("abc") 같은 코드를 쓰면 절대 안된다.
+
+
 
 ##### Monitor 클래스로 동기화하기
 
@@ -202,10 +213,11 @@ public void Increase()
 ##### Monitor.Wait()와 Monitor.Pulse()로 하는 저수준 동기화
 
 - 크리티컬섹션에서 사용
+- 이 두 메소드는 반드시 lock 블록 안에서 호출해야 한다. lock걸어 놓지 않은 상태에서 이 두 메소드를 호출한다면 CLR이 SynchronizationLockException 예외를 던진다.
 - Monitor.Wait()는 스레드를 WaitSleepJoin상태로 만든다. 스레드 후에 Waiting Queue에 입력되고 다른 스레드가 락을 얻어 작업을 수행, 작업을 수행하던 스레드가 일을 마친 뒤 Pulse() 메소드를 호출하면 Waiting Queue에서 첫 번째 위치에 있는 스레드를 꺼낸 뒤 Ready Queue에 입력시킨다. Ready Queue에 입력된 스레드는 입력된 차례에 따라 락을 얻어 Running상태로 들어간다.
 
 
-![image-20210226140139572](C:\Users\CHLee\AppData\Roaming\Typora\typora-user-images\image-20210226140139572.png)
+![image-20210226140139572](C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\2.png)
 
 ```C#
 //1. 클래스 안에 다음과 같이 동기화 객체 필드를 선언
@@ -241,6 +253,12 @@ lock (thisLock)
 ```
 
 
+
+### 스레드 속성
+
+- Name : 스레드 이름
+- IsAlive : return value : bool
+- IsBackground : return value : bool
 
 ### 2. Task와 Task<TResult> 그리고 Parallel
 

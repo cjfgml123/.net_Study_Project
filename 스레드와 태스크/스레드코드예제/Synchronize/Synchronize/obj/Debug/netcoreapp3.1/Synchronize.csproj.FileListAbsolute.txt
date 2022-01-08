@@ -1,0 +1,13 @@
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.exe
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.deps.json
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.runtimeconfig.json
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.runtimeconfig.dev.json
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.dll
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\bin\Debug\netcoreapp3.1\Synchronize.pdb
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.csprojAssemblyReference.cache
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.AssemblyInfoInputs.cache
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.AssemblyInfo.cs
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.csproj.CoreCompileInputs.cache
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.dll
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.pdb
+C:\Users\CHLee\Desktop\C#문법\스레드와 태스크\스레드코드예제\Synchronize\Synchronize\obj\Debug\netcoreapp3.1\Synchronize.genruntimeconfig.cache

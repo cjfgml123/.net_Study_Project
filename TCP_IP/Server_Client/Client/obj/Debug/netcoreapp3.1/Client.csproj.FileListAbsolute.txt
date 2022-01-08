@@ -1,0 +1,13 @@
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.exe
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.deps.json
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.json
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.dev.json
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.dll
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\bin\Debug\netcoreapp3.1\Client.pdb
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompileInputs.cache
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.dll
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.pdb
+C:\Users\CHLee\Desktop\C#문법\TCP_IP\Server_Client\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
